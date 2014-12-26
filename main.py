@@ -1,4 +1,3 @@
-
 import logging
 from camelot.core.conf import settings, SimpleSettings
 

@@ -1,0 +1,29 @@
+# AGREGAR CONTACTOS
+	modulo que especifique la empresa para agregar la informacion de un contacto de trabajo
+
+	* Nombre
+	*Apellido
+	*C.I.
+	*R.I.F
+	*N.I.T
+	*Direccion
+	*Correo
+	*Telefono de contacto
+	*Fax
+	*Registro Mercantil
+
+# MODIFICAR INFORMACION
+
+	Modulo que contenga la manera de visualizar el contenido de toda la agenda (contactos) y tenga la manera de hacer
+	una busqueda por nombre para luego seleccionar el contacto y modificar la informacion deseada,
+	si no solo se busca y se modifica y ya
+
+# MOSTRAR CONTACTOS
+
+	muestre todos los contactos existentes en la agenda y se pueda visualizar toda la informacion
+
+# BORRAR CONTACTO
+
+	mostrar los contacto y seleccionar que contacto sera borrado
+
+

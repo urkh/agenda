@@ -21,7 +21,7 @@ class MyApplicationAdmin(ApplicationAdmin):
                           self,
                           Icon('tango/22x22/apps/system-users.png'),
                           items = [Cliente] ),
-                 Section( _('Configuration'),
+                 Section( _('Configuracion'),
                           self,
                           Icon('tango/22x22/categories/preferences-system.png'),
                           items = [Memento, Translation] )

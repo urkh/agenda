@@ -1,4 +1,3 @@
-
 #
 # Default setup file for a Camelot application
 #

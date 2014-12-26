@@ -16,11 +16,11 @@ class MyApplicationAdmin(ApplicationAdmin):
         from camelot.model.memento import Memento
         from camelot.model.i18n import Translation
         from model import Movie
-        return [ Section( _('My classes'),
+        return [ Section( _('Opciones'),
                           self,
                           Icon('tango/22x22/apps/system-users.png'),
                           items = [Movie] ),
-                 Section( _('Configuration'),
+                 Section( _('Configuracion'),
                           self,
                           Icon('tango/22x22/categories/preferences-system.png'),
                           items = [Memento, Translation] )

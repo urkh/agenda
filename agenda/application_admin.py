@@ -16,13 +16,13 @@ class MyApplicationAdmin(ApplicationAdmin):
     def get_sections(self):
         from camelot.model.memento import Memento
         from camelot.model.i18n import Translation
-        from model import Movie, Director
+        from model import Movie, Director, Cliente
         return [
             Section(
-                _('Opciones'),
+                _('Contactos'),
                 self,
                 Icon('tango/22x22/apps/system-users.png'),
-                items=[Movie, Director]
+                items=[Movie, Director, Cliente]
             ),
             Section(
                 _('Configuracion'),

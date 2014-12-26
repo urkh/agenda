@@ -1,18 +1,21 @@
-class Contactos( Entity ):
+class Contactos(Entity):
 
     __tablename__ = 'contactos'
 
-    nom = Column( Unicode(60), nullable = False )
-    ced = Column(Unicode(9), )
-    rif = Column(Unicode(12),)
-    direc = Column( Unicode(512) )
-    telf = Column(Unicode(22))
-    fecha_creado = Column( Date() )
-    genre = Column( Unicode(15) )
+    Nombre = Column(Unicode(60), nullable = False )
+    Cedula = Column(Unicode(9), )
+    RIF = Column(Unicode(12),)
+    Direccion = Column( Unicode(512) )
+    Apartado_Postal = Column (Unicode(6))
+    Telefono = Column(Unicode(22))
+    Registo_Mercantil = Column(Unicode(14))
+    Sitio_Web = Column (Unicode(100))
+    Fecha_Creado = Column( Date() )
+    Genero = Column(Unicode(15) )
 
     def __unicode__( self ):
-        return self.nom or 'nombre no colocado'
-
+        return self.Nombre or 'NOMBRE NO COLOCADO'
+        return self.RIF or 'RIF NO COLOCADO'
     class Admin( EntityAdmin ):
         verbose_name = 'Contactos'
-        list_display = ['nom', 'ced', 'rif', 'direc', 'telf', 'fecha_creado', 'genre']
+        list_display = ['Nombre', 'Cedula', 'RIF', 'Direccion', 'Apartado_Postal', 'Telefono', 'Registro_Mercantil', 'Sitio_Web', 'Fecha_Creado', 'Genero']

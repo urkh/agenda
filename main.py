@@ -31,7 +31,6 @@ my_settings = MySettings('Gustavo Leon y Marcos Castellanos', 'Agenda de Contact
 settings.append(my_settings)
 # end custom settings
 
-
 def start_application():
     from camelot.view.main import main
     from agenda.application_admin import MyApplicationAdmin

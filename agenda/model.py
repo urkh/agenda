@@ -37,3 +37,27 @@ class Director(Entity):
 
     def __unicode__(self):
         return self.name or 'unknow director'
+
+
+class Cliente(Entity):
+
+    __tablename__ = 'cliente'
+
+    nombre = Column(Unicode(60), nullable = False )
+    cedula = Column(Unicode(9), )
+    rif = Column(Unicode(12),)
+    direccion = Column( Unicode(512) )
+    apartado_postal = Column (Unicode(6))
+    telefono = Column(Unicode(22))
+    registro_mercantil = Column(Unicode(14))
+    sitio_web = Column (Unicode(100))
+    fecha_creado = Column( Date() )
+    genero = Column(Unicode(15) )
+
+    def __unicode__( self ):
+        return self.nombre or 'Sin nombre'
+    
+    class Admin( EntityAdmin ):
+        verbose_name = 'Cliente'
+        list_display = ['nombre', 'cedula', 'rif', 'direccion', 'apartado_postal', 'telefono', 'registro_mercantil', 'sitio_web', 'fecha_creado', 'genero']
+

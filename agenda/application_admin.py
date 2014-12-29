@@ -1,4 +1,4 @@
-
+from camelot_example.importer import ImportCovers
 from camelot.view.art import Icon
 from camelot.admin.application_admin import ApplicationAdmin
 from camelot.admin.section import Section
@@ -22,8 +22,14 @@ class MyApplicationAdmin(ApplicationAdmin):
                 _('Contactos'),
                 self,
                 Icon('tango/22x22/apps/system-users.png'),
-                items=[Movie, Director, Cliente]
+                items=[Cliente]
             ),
+            Section( _('Movies'),
+                         self,
+                         Icon('tango/22x22/mimetypes/x-office-presentation.png'),
+                         items = [ Movie,
+#                                   VisitorsPerDirector,
+                                   ImportCovers() ]),
             Section(
                 _('Configuracion'),
                 self,

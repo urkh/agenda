@@ -2,6 +2,20 @@ from sqlalchemy.schema import Column, ForeignKey
 from sqlalchemy import Unicode, Date, Integer
 from camelot.admin.entity_admin import EntityAdmin
 from camelot.core.orm import Entity, relationship
+from camelot.admin.action import Action
+from camelot.view.action_steps import PrintHtml
+from camelot.core.utils import ugettext_lazy as _
+from camelot.view.art import Icon
+
+
+class PrintReport( Action ):      # <------ IMPRIMIR UN REPORTE DE MANERA TOTAL DE CUALQUIER SECCION
+
+    verbose_name = _('Print Report')
+    icon = Icon('tango/16x16/actions/document-print.png')
+    tooltip = _('Print a report with all the movies')
+
+    def model_run( self, model_context ):
+        yield PrintHtml( 'Hello World' )
 
 
 class Movie(Entity):
@@ -22,7 +36,6 @@ class Movie(Entity):
     class Admin(EntityAdmin):
         verbose_name = 'Movie'
         list_display = ['title', 'short_description', 'release_date', 'genre', 'director']
-
 
 class Director(Entity):
 

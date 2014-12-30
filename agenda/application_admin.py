@@ -27,7 +27,7 @@ class MyApplicationAdmin(ApplicationAdmin):
             Section( _('Movies'),
                          self,
                          Icon('tango/22x22/mimetypes/x-office-presentation.png'),
-                         items = [ Movie,
+                         items = [ Movie, Director, 
 #                                   VisitorsPerDirector,
                                    ImportCovers() ]),
             Section(

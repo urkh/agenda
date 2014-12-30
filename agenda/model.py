@@ -8,18 +8,19 @@ from camelot.core.utils import ugettext_lazy as _
 from camelot.view.art import Icon
 
 
-class PrintReport( Action ):      # <------ IMPRIMIR UN REPORTE DE MANERA TOTAL DE CUALQUIER SECCION
+class Reporte( Action ):      # <------ IMPRIMIR UN REPORTE DE MANERA TOTAL DE CUALQUIER SECCION
 
-    verbose_name = _('Print Report')
-    icon = Icon('tango/16x16/actions/document-print.png')
-    tooltip = _('Print a report with all the movies')
+    verbose_name = _('Reporte')
+    #icon = Icon('tango/16x16/actions/document-print.png')
+    #tooltip = _('Print a report with all the movies')
 
     def model_run( self, model_context ):
-        yield PrintHtml( 'Hello World' )
+        movie = model_context.get_object()
+        yield PrintHtml( "<h1>This will become the movie report of %s!</h1>" % movie.title )
 
 
 class Movie(Entity):
-
+    
     __tablename__ = 'movie'
 
     title = Column(Unicode(60), nullable=False)
@@ -73,4 +74,3 @@ class Cliente(Entity):
     class Admin( EntityAdmin ):
         verbose_name = 'Cliente'
         list_display = ['nombre', 'cedula', 'rif', 'direccion', 'apartado_postal', 'telefono', 'registro_mercantil', 'sitio_web', 'fecha_creado', 'genero']
-

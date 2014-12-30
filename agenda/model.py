@@ -6,19 +6,24 @@ from camelot.admin.action import Action
 from camelot.view.action_steps import PrintHtml
 from camelot.core.utils import ugettext_lazy as _
 from camelot.view.art import Icon
+#
+import datetime
+import os
+from pkg_resources import resource_filename
+from camelot.core.conf import settings
 
 
 class Reporte( Action ):      # <------ IMPRIMIR UN REPORTE DE MANERA TOTAL DE CUALQUIER SECCION
 
     verbose_name = _('Reporte')
-    #icon = Icon('tango/16x16/actions/document-print.png')
-    #tooltip = _('Print a report with all the movies')
+    icon = Icon('tango/16x16/actions/document-print.png')
+    tooltip = _('Print a report with all the movies')
 
     def model_run( self, model_context ):
         movie = model_context.get_object()                     #<------ Imprimir reporte de manera individual
-        cliente = model_context.get_object()                   #<------ Revizar, lanza error
-        yield PrintHtml( "<h1>This will become the movie report of %s!</h1>" % cliente.nombre )    
-        yield PrintHtml( "<h1>This will become the movie report of %s!</h1>" % movie.title )
+   #    cliente = model_context.get_object()                   #<------ Revizar, lanza error
+   #    yield PrintHtml( "<h1>This will become the movie report of %s!</h1>" % cliente.nombre ) # Reporte cliente   
+        yield PrintHtml( "<h1>This will become the movie report of %s!</h1>" % movie.title ) # Reporte pelicula
 
 
 class Movie(Entity):
@@ -40,7 +45,7 @@ class Movie(Entity):
         from model import Reporte
         verbose_name = 'Movie'
         list_display = ['title', 'short_description', 'release_date', 'genre', 'director']
-        form_actions = [Reporte()] 
+        form_actions = [Reporte()]       #<------ Boton Reporte 
        
 
 class Director(Entity):

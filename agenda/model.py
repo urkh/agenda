@@ -15,7 +15,9 @@ class Reporte( Action ):      # <------ IMPRIMIR UN REPORTE DE MANERA TOTAL DE C
     #tooltip = _('Print a report with all the movies')
 
     def model_run( self, model_context ):
-        movie = model_context.get_object()
+        movie = model_context.get_object()                     #<------ Imprimir reporte de manera individual
+        cliente = model_context.get_object()                   #<------ Revizar, lanza error
+        yield PrintHtml( "<h1>This will become the movie report of %s!</h1>" % cliente.nombre )    
         yield PrintHtml( "<h1>This will become the movie report of %s!</h1>" % movie.title )
 
 
@@ -35,8 +37,11 @@ class Movie(Entity):
         return self.title or 'Untitled movie'
 
     class Admin(EntityAdmin):
+        from model import Reporte
         verbose_name = 'Movie'
         list_display = ['title', 'short_description', 'release_date', 'genre', 'director']
+        form_actions = [Reporte()] 
+       
 
 class Director(Entity):
 
@@ -74,3 +79,4 @@ class Cliente(Entity):
     class Admin( EntityAdmin ):
         verbose_name = 'Cliente'
         list_display = ['nombre', 'cedula', 'rif', 'direccion', 'apartado_postal', 'telefono', 'registro_mercantil', 'sitio_web', 'fecha_creado', 'genero']
+        form_actions = [Reporte()]
